@@ -497,7 +497,7 @@ Suppose there is a web server app running in a pod on a node, we can access it f
 
 A NodePort service in Kubernetes exposes an application running inside the cluster to external clients. It maps a specific port on all cluster nodes to the target port of the service, allowing external access by connecting to any cluster node's IP address and the assigned NodePort. NodePort services are commonly used for external access during development or testing.
 
-![Service-Port-NodePort-TargetPort.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b6b2abe3-db8c-4930-89cd-6c474c8fc997/Service-Port-NodePort-TargetPort.png)
+![Service-Port-NodePort-TargetPort](https://github.com/anshumanrana331/CKA-Guide-2023/assets/56511928/58afadbb-66b8-4ad3-b2b7-75b77f28252d)
 
 ### NodePort YAML Syntax
 
@@ -550,7 +550,7 @@ The ClusterIP service assigns a virtual IP address to enable communication betwe
 
 ClusterIP services are commonly used in micro-services architectures to facilitate communication between different components within the cluster.
 
-![1_dLlC4L2qpImyZS6gOntUjg.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e9cbe0a1-0d95-4bc6-bb35-3c6e0323203d/1_dLlC4L2qpImyZS6gOntUjg.png)
+![1_dLlC4L2qpImyZS6gOntUjg](https://github-production-user-asset-6210df.s3.amazonaws.com/56511928/248739200-d84ab143-8034-44d5-8a47-fe3fdcd6136a.png)
 
 ### ClusterIP YAML syntax
 
@@ -567,11 +567,11 @@ spec:
     - protocol: TCP
 
       port: 80 # port number on which the service will listen for incoming traffic.
-               # It represents the port that clients can use to access the service.
+      # It represents the port that clients can use to access the service.
 
       targetPort: 8080 # specifies the port number on the Pods to which the traffic 
-											 # should be forwarded. It represents the port on which the 
-											 # application or service inside the Pod is listening to.
+      # should be forwarded. It represents the port on which the 
+      # application or service inside the Pod is listening to.
 
 # While the port field is typically required, the targetPort field is optional.
 # If targetPort is not specified, Kubernetes will use the same value 
@@ -583,7 +583,8 @@ spec:
 
 A LoadBalancer service in Kubernetes is a type of service that automatically provisions an external load balancer to distribute incoming traffic across the pods in a cluster. It provides a stable external IP address or DNS name that can be used to access the service from outside the cluster. This allows for scaling and distributing traffic to the application running inside the pods, ensuring high availability and reliability.
 
-![Screenshot 2023-06-17 at 5.08.14 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4463cfb5-66b0-4a43-ac84-0f9735ea0e99/Screenshot_2023-06-17_at_5.08.14_PM.png)
+![lb-service](https://github-production-user-asset-6210df.s3.amazonaws.com/56511928/248740538-c57c1bab-4465-4090-973b-e9450ff416f8.png)
+
 
 ### Loadbalancer YAML syntax
 
