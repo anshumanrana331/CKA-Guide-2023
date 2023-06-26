@@ -40,7 +40,7 @@ kubectl top node
 $ kubectl top pod
 ```
 
-There are advanced tools available for monitoring a K8s cluster. There are number of opensource solutions available today, such as**`prometheus`**, **`Elastic Stack`**, **`Datadog`** and **`Dynatrace`**.
+There are advanced tools available for monitoring a K8s cluster. There are number of opensource solutions available today, such as **`prometheus`**, **`Elastic Stack`**, **`Datadog`** and **`Dynatrace`**.
 
 ## Managing Application Logs
 
