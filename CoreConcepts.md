@@ -361,7 +361,7 @@ spec:
       - name: my-container
         image: my-image:latest
 
-	replicas: 3 #specifies the desired number of replicas.
+  replicas: 3 #specifies the desired number of replicas.
 
   selector: #defines the label selector used to match the pods
     matchLabels:
@@ -514,11 +514,11 @@ spec:
     - port: 8080 # port number exposed internally in cluster (mandatory field)
       targetPort: 80 # port that containers/pods are listening on
       nodePort: 30000 # access service via this external port number
-			# Default range for nodePort is 30000 to 32767
+      # Default range for nodePort is 30000 to 32767
   selector:
     app: my-app
-	# the selector field specifies the pods to which the service should 
-	# route traffic based on their labels
+    # the selector field specifies the pods to which the service should 
+    # route traffic based on their labels
 ```
 
 ### Commands
