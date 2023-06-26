@@ -20,7 +20,7 @@ The exam is of 2 hours.
 
 1. [Core Concepts](https://github.com/anshumanrana331/CKA-Guide-2023/blob/main/CoreConcepts.md)
 2. [Scheduling](https://github.com/anshumanrana331/CKA-Guide-2023/blob/main/Scheduling.md)
-3. [Logging and Monitoring]()
+3. [Logging and Monitoring](https://github.com/anshumanrana331/CKA-Guide-2023/blob/main/Logging%20and%20Monitoring)
 4. [Application Lifecycle Management](https://github.com/anshumanrana331/CKA-Guide-2023/blob/main/ApplicationLifecycleManagement.md)
 5. [Security](https://github.com/anshumanrana331/CKA-Guide-2023/blob/main/Security.md)
 6. [Storage](https://github.com/anshumanrana331/CKA-Guide-2023/blob/main/Storage.md)
