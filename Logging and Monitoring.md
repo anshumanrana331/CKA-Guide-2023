@@ -2,7 +2,7 @@
 
 ## Monitor Cluster Components
 
-To monitor the:
+To monitor:
 
 - **`Node Level`** metrics such as the number of nodes in the cluster. How many of them are healthy as well as the performance metrics such as CPU, Memory, Network and Disk Utilization.
 - As well as **`POD Level`** metrics such as the number of PODs, and performance metrics of each POD such as the CPU and Memory consumption on them.
