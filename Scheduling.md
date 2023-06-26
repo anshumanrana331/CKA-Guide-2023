@@ -126,7 +126,7 @@ Now in the pod's YAML configuration, you can specify the **`nodeSelector`** fiel
 
 ```yaml
 nodeSelector:
-	label-key: label-value
+  label-key: label-value
 ```
 
 Node Selector is useful when you have specific node requirements for your pods, such as running them on dedicated nodes or nodes with specific hardware capabilities.
@@ -164,7 +164,7 @@ affinity:
             - value1
           - key: key2
             operator: Exists
-						# Values are not needed in 'Exists' or 'DoesNotExist' operator
+            # Values are not needed in 'Exists' or 'DoesNotExist' operator
 
       preferredDuringSchedulingIgnoredDuringExecution:
       - weight: 100
@@ -320,9 +320,9 @@ For example you cannot edit the environment variables, service accounts, resourc
 
 1. Run the `kubectl edit pod <pod name>` command.  This will open the pod specification in an editor (vi editor). Then edit the required properties. When you try to save it, you will be denied. This is because you are attempting to edit a field on the pod that is not editable.
 
-!https://img-c.udemycdn.com/redactor/raw/2019-05-30_14-46-21-89ea56fea6b993ee0ccff1625b13341e.PNG
+![image](https://github.com/anshumanrana331/CKA-Guide-2023/assets/56511928/69d2ee87-ce7b-4194-b5fd-c1cd174f35d3)
 
-!https://img-c.udemycdn.com/redactor/raw/2019-05-30_14-47-14-07b2638d1a72cb2d5b000c00971f6436.PNG
+![image1](https://github.com/anshumanrana331/CKA-Guide-2023/assets/56511928/bb96ca7f-d132-4f7b-9615-7f72ff4dbb42)
 
 A copy of the file with your changes is saved in a temporary location as shown above.
 
@@ -470,7 +470,7 @@ We cannot do the static deployment of ReplicaSets or Deployments or Services by 
 
 ### Static Pods vs DaemonSets
 
-![Screenshot 2023-06-22 at 4.15.01 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ff4ea520-5cf7-4ec7-8f67-67147e623dec/Screenshot_2023-06-22_at_4.15.01_PM.png)
+![spvsds](https://github.com/anshumanrana331/CKA-Guide-2023/assets/56511928/34e62486-1223-4cef-8aee-5dbc4a9a77b4)
 
 Remember, setting up K8s cluster using the KubeADM tool deploys control plane components as static pods.
 
@@ -546,94 +546,6 @@ A scheduling Profile allows you to configure the different stages of scheduling 
 
 Read more at: https://kubernetes.io/docs/reference/scheduling/config/
 
-![Screenshot 2023-06-23 at 4.29.51 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c5644109-0c30-4a6f-b1c1-63bb64fb9cbb/Screenshot_2023-06-23_at_4.29.51_PM.png)
+<img width="1395" alt="schedulingprofile" src="https://github.com/anshumanrana331/CKA-Guide-2023/assets/56511928/c44b5e75-f541-4445-a14c-54c111b3583a">
 
 Pink Boxes are Extension Points, Blue boxes are Plugins.
-
-# Logging & Monitoring
-
-## Monitor Cluster Components
-
-To monitor the:
-
-- **`Node Level`** metrics such as the number of nodes in the cluster. How many of them are healthy as well as the performance metrics such as CPU, Memory, Network and Disk Utilization.
-- As well as **`POD Level`** metrics such as the number of PODs, and performance metrics of each POD such as the CPU and Memory consumption on them.
-
-We need a solution that will monitor these metrics store them and provide analytics around this data. We 
-
-### Metrics Server
-
-Metrics Server is a component in Kubernetes that collects resource metrics from various resources in the cluster, such as nodes, pods, and containers. It provides these metrics to the Kubernetes API server, which can then be used by various tools and components for monitoring and autoscaling purposes.
-
-Note that the Metric Server is only an in memory monitoring solution and does not store the metrics on the disk and as a result you cannot see historical performance data.
-
-### How are the metrics generated for the PODs?
-
-- Kubernetes runs an agent on each node known as the kubelet, which is responsible for receiving instructions from the kubernetes API master server and running PODs on the nodes.
-- The kubelet also contains a subcomponent known as CAdvisor or Container Advisor.
-- CAdvisor is responsible for performance metrics from pods, and exposing them through the kubelet API to make the metrics available for the metrics server.
-
-### Metrics Server deployment and commands
-
-```bash
-# Deploying Metrics Server in Minikube:
-minikube addons enable metrics-server
-
-# Deployment of Metrics Server in a K8s cluster:
-# 1. Clone the metric server from github repo
-git clone https://github.com/kubernetes-incubator/metrics-server.git
-# 2. Deploy the metric server
-kubectl create -f metric-server/deploy/1.8+/
-
-# View the cluster performance
-kubectl top node
-
-# View performance metrics of pod
-$ kubectl top pod
-```
-
-There are advanced tools available for monitoring a K8s cluster. There are number of opensource solutions available today, such as**`prometheus`**, **`Elastic Stack`**, **`Datadog`** and **`Dynatrace`**.
-
-## Managing Application Logs
-
-Monitoring application logs in Kubernetes is crucial for maintaining the health, performance, and security of your applications in a containerized environment.
-
-The **`kubectl logs`** command is used to retrieve the logs of a specific container within a pod in Kubernetes.
-
-```bash
-# To view the logs of a pod:
-kubectl logs -f pod_name
-# -f flag enables the live trails of the logs
-
-# The -f flag stands for "follow" and enables the streaming mode, 
-# where new log entries are continuously fetched and 
-# displayed as they are produced.
-
-# If there are multiple containers in a pod:
-kubectl logs -f pod_name -c container_name
-# -c flag is used to specify the container name
-
-# We use --tail to get the last log lines:
-kubectl logs pod_name --tail <number>
-# This will display the last <number> lines of logs.
-```
-
-### How do we run commands inside a container of a Pod?
-
-The **`kubectl exec`** command is used to execute a command inside a running container of a pod.
-
-```bash
-kubectl exec [options] <pod_name> -- <command>
-```
-
-Here, **`<pod-name>`** refers to the name of the pod in which you want to execute the command, and **`<command>`** is the command you want to run inside the container. The **`--`** (double dash) is used to separate the **`kubectl`** options from the command to be executed inside the container.
-
-You can also specify the container name using the **`-c`** flag if the pod has multiple containers. Additionally, you can use the **`-it`** flag for interactive mode, allowing you to enter an interactive shell session within the container.
-
-For example:
-
-```bash
-kubectl exec -it my-pod -- /bin/bash
-# This command opens an interactive shell session inside the 
-# container of the my-pod pod, allowing you to run commands within it.
-```
