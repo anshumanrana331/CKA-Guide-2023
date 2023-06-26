@@ -14,4 +14,8 @@ The exam is of 2 hours.
 - Candidate Handbook: https://www.cncf.io/certification/candidate-handbook
 - Exam Tips: http://training.linuxfoundation.org/go//Important-Tips-CKA-CKAD
 
-1. 
+## Topics
+
+1. [Core Concepts](https://github.com/anshumanrana331/CKA-Guide-2023/blob/main/CoreConcepts.md)
+2. [Scheduling](https://github.com/anshumanrana331/CKA-Guide-2023/blob/main/Scheduling.md)
+3. 

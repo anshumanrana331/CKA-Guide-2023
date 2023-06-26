@@ -8,7 +8,7 @@ Kubernetes is an open-source container orchestration platform that automates the
 
 [What is Kubernetes Architecture? | VMware Glossary](https://www.vmware.com/in/topics/glossary/content/kubernetes-architecture.html)
 
-![K8-Architecture-1024x580.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/55e04c45-57e5-4e27-aff3-020fdfbb937a/K8-Architecture-1024x580.png)
+![K8-Architecture-1024x580](https://github.com/anshumanrana331/CKA-Guide-2023/assets/56511928/dda4e537-cdfe-4571-81d6-12a57085054e)
 
 To summarise, we have Master and Worker Nodes.
 
