@@ -279,13 +279,13 @@ apiVersion: v1
 kind: Pod 
 
 metadata:
-	name: myapp-pod
-	labels:
-		app: myapp
-		type: front-end
+  name: myapp-pod
+  labels:
+    app: myapp
+    type: front-end
 
 spec:
-	containers:
+  containers:
     - name: container-name
       image: image-name
 ```
